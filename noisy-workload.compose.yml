@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  wl-1:
+    image: likewhatevs/perfstuff:noisy-workload
+    cpuset: "0-3,16-19"
+    environment:
+      W_PCT: "23.75"
+      N_PCT: "7.5"
+
+  wl-2:
+    image: likewhatevs/perfstuff:noisy-workload
+    cpuset: "4-7,20-23"
+    environment:
+      W_PCT: "23.75"
+      N_PCT: "7.5"
+
+  wl-3:
+    image: likewhatevs/perfstuff:noisy-workload
+    cpuset: "8-11,24-27"
+    environment:
+      W_PCT: "23.75"
+      N_PCT: "7.5"
+
+  wl-4:
+    image: likewhatevs/perfstuff:noisy-workload
+    cpuset: "12-15,28-31"
+    environment:
+      W_PCT: "23.75"
+      N_PCT: "7.5"
+
+
