@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ -n "$SLEEP" ]]; then
+    sleep 86400
+fi
+
 # Default percentages
 W_PCT="${W_PCT:-0.95}"
 N_PCT="${N_PCT:-0.30}"
