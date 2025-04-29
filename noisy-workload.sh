@@ -5,8 +5,11 @@ if [[ -n "$SLEEP" ]]; then
 fi
 
 # Default percentages
-W_PCT="${W_PCT:-0.95}"
-N_PCT="${N_PCT:-0.30}"
+W_PCT="${W_PCT:-}"
+N_PCT="${N_PCT:-}"
+
+W_PCT=${W_PCT:-0.95}
+N_PCT=${N_PCT:-0.30}
 
 CPU_COUNT="$(nproc)"
 
