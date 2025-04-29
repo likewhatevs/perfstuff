@@ -10,13 +10,13 @@ N_PCT="${N_PCT:-0.30}"
 
 CPU_COUNT="$(nproc)"
 
-# Calculate thread numbers (rounded down explicitly)
+# Calculate thread numbers (correctly floor division)
 if [[ -z "$W_THREADS" ]]; then
-    W_THREADS=$(printf "%.0f" $(echo "$CPU_COUNT * $W_PCT" | bc -l))
+    W_THREADS=$(echo "$CPU_COUNT * $W_PCT" | bc -l | awk '{print int($1)}')
 fi
 
 if [[ -z "$N_THREADS" ]]; then
-    N_THREADS=$(printf "%.0f" $(echo "$CPU_COUNT * $N_PCT" | bc -l))
+    N_THREADS=$(echo "$CPU_COUNT * $N_PCT" | bc -l | awk '{print int($1)}')
 fi
 
 # Ensure at least one worker thread if percentage is nonzero
@@ -29,7 +29,7 @@ echo "running with $W_THREADS workload and $N_THREADS noise threads"
 
 # Run noise threads if N_THREADS > 0
 if (( N_THREADS > 0 )); then
-    sysbench cpu --threads=$N_THREADS --time=$RUNTIME run &
+    sysbench cpu --threads="$N_THREADS" --time="$RUNTIME" run &
 fi
 
 # Run main workload

@@ -5,6 +5,7 @@ services:
     image: likewhatevs/perfstuff:noisy-workload
     cpuset: "0-3,16-19"
     environment:
+      # SLEEP: true
       W_PCT: 23.75
       N_PCT: 7.5
 
@@ -12,6 +13,7 @@ services:
     image: likewhatevs/perfstuff:noisy-workload
     cpuset: "4-7,20-23"
     environment:
+      # SLEEP: true
       W_PCT: 23.75
       N_PCT: 7.5
 
@@ -19,6 +21,7 @@ services:
     image: likewhatevs/perfstuff:noisy-workload
     cpuset: "8-11,24-27"
     environment:
+      # SLEEP: true
       W_PCT: 23.75
       N_PCT: 7.5
 
@@ -26,6 +29,7 @@ services:
     image: likewhatevs/perfstuff:noisy-workload
     cpuset: "12-15,28-31"
     environment:
+      # SLEEP: true
       W_PCT: 23.75
       N_PCT: 7.5
 
