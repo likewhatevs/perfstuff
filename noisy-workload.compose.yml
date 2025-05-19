@@ -31,7 +31,7 @@ services:
   wl-4:
     restart: unless-stopped
     image: likewhatevs/perfstuff:noisy-workload
-    cpuset: "12-15,28-31"
+    cpuset: "0-3,32-35"
     environment:
       # SLEEP: true
       - W_PCT=30
